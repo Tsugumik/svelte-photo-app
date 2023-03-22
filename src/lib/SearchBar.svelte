@@ -1,9 +1,5 @@
-<script lang="ts">
-    let name = "";
-</script>
-
 <form method="get" action="/">
-    <input required type="text" name="query" bind:value={name} placeholder="Search...">
+    <input required type="text" name="query" placeholder="Search...">
     <input type="number" name="max_results" min="1" max="80" placeholder="Limit">
     <button type="submit">Search</button>
 </form>

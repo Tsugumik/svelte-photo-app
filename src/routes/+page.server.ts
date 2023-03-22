@@ -20,6 +20,8 @@ export async function load({ url, fetch }) {
 
         if(!response.photos) {
             throw error(404, "Not found");
+        } else if(!query.ok) {
+            throw error(500, "Server error");
         }
 
         return { pexelsResponse: response };

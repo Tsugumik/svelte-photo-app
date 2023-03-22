@@ -1,0 +1,1 @@
+My example of a simple Svelte application using the pexels api to search photos.

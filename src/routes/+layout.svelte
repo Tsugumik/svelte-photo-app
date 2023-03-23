@@ -5,6 +5,10 @@
     import Footer from '$lib/Footer.svelte';
 </script>
 
+<svelte:head>
+    <title>Svelte Photo App</title>
+</svelte:head>
+
 <Logo/>
 
 <SearchBar/>

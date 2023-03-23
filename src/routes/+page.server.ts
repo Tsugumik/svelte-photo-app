@@ -7,7 +7,7 @@ export async function load({ url, fetch }) {
     const max_results = Number(url.searchParams.get('max_results')) || 15;
 
     if(isNaN(max_results) || max_results < 1 || max_results > 80) {
-        return error(400, 'max_results must be number and between 1 and 80')
+        throw error(400, 'max_results must be number and between 1 and 80')
     }
 
     if(name) {

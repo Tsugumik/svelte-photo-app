@@ -4,18 +4,20 @@ import { error } from '@sveltejs/kit';
 
 export async function load({ url, fetch }) {
     const name = url.searchParams.get('query');
-    const max_results = Number(url.searchParams.get('max_results')) || 15;
-
-    if(max_results < 1 || max_results > 80) {
-        throw error(400, 'max_results must be number and between 1 and 80')
-    }
 
     if(name) {
+        const max_results = Number(url.searchParams.get('max_results')) || 15;
+
+        if(max_results < 1 || max_results > 80) {
+            throw error(400, 'max_results must be number and between 1 and 80');
+        }
+
         const query = await fetch(`https://api.pexels.com/v1/search?query=${name}&per_page=${max_results}`, {
             headers: {
                 Authorization: PEXELS_API_KEY
             }
         });
+        
         const response: PexelsResponse = await query.json();
 
         if(!response.photos) {

@@ -4,7 +4,7 @@
 </script>
 
 <a href="/photo/{photo.id}">
-    <img src={photo.src.medium} alt={photo.alt} loading="lazy">
+    <img src={photo.src.medium} alt={photo.alt}>
 </a>
 
 

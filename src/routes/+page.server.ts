@@ -20,8 +20,10 @@ export async function load({ url, fetch }) {
         
         const response: PexelsResponse = await query.json();
 
-        if(!response.photos) {
-            throw error(404, "Not found");
+        if(response.photos) {
+            if(response.photos.length < 1) {
+                throw error(404, "Not found");
+            }
         } else if(!query.ok) {
             throw error(500, "Server error");
         }

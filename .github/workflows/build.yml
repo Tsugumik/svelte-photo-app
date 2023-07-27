@@ -8,6 +8,8 @@ on:
 
 jobs:
   build:
+    env:
+      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
     runs-on: ubuntu-latest
     steps:
       - name: Add mask 1
@@ -16,16 +18,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Publish Docker Image
-        env:
-          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
         uses: matootie/github-docker@v3.1.0
         with:
           accessToken: ${{ github.token }}
           containerRegistry: true
       - name: Deploy on VPS
         uses: caprover/deploy-from-github@v1.1.2
-        env:
-          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
         with:
           server: https://${{ secrets.ROOT_DOMAIN }}
           app: '${{ secrets.APP_NAME }}'

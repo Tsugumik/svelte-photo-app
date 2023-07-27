@@ -16,6 +16,8 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Publish Docker Image
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
         uses: matootie/github-docker@v3.1.0
         with:
           accessToken: ${{ github.token }}

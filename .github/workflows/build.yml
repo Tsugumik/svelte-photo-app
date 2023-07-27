@@ -8,8 +8,6 @@ on:
 
 jobs:
   build:
-    env:
-      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
     runs-on: ubuntu-latest
     steps:
       - name: Add mask 1
@@ -22,6 +20,8 @@ jobs:
         with:
           accessToken: ${{ github.token }}
           containerRegistry: true
+          buildArgs: |
+            PEXELS_API_KEY=${{ secrets.PEXELS_API_KEY }}
       - name: Deploy on VPS
         uses: caprover/deploy-from-github@v1.1.2
         with:

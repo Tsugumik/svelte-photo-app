@@ -12,7 +12,7 @@ export async function load({ params, fetch }) {
     if(query.status === 404) {
         throw error(404, query.statusText);
     } else if(!query.ok) {
-        throw error(500, "Server error");
+        throw error(500, "Server error, try again later");
     }
 
     const response: PexelsPhoto = await query.json();;

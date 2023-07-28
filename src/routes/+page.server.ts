@@ -1,4 +1,4 @@
-import { PEXELS_API_KEY } from '$env/dynamic/public';
+import { PEXELS_API_KEY } from '$env/static/private';
 import type { PexelsResponse } from '$lib/Pexels';
 import { error } from '@sveltejs/kit';
 

@@ -21,4 +21,3 @@ jobs:
                 server: https://${{ secrets.ROOT_DOMAIN }}
                 app: '${{ secrets.APP_NAME }}'
                 token: '${{ secrets.APP_TOKEN }}'
-                branch: main
